@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             // Move player
             Move(dir);
         }
-        else
+        if (!playerState.isMoving)
         {
             // Stop moving
             playerState.SetState(PLAYERSTATE.IDLE);

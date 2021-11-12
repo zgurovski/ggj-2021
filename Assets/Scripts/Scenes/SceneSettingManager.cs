@@ -6,14 +6,34 @@ using UnityEngine.SceneManagement;
 public class SceneSettingManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         prepareSceneSettings();
     }
 
-    // Update is called once per frame
-    private void prepareSceneSettings()
+    /**
+     * Prepares all settings needed for this scene
+     */
+    void prepareSceneSettings()
     {
+        prepareGlobalSceneSettings();
+        prepareCurrentSceneSettings();
+    }
+
+    /**
+     * This wil prepare the settings used in all scenes
+     */
+    void prepareGlobalSceneSettings()
+    {
+        // TODO if any
+    }
+
+    /**
+     * This will prepare the settings for the current scene only
+     */
+    void prepareCurrentSceneSettings()
+    {
+
         string sceneName = SceneManager.GetActiveScene().name;
         SceneLoader.Scene scene = SceneLoader.getSceneByName(sceneName);
 

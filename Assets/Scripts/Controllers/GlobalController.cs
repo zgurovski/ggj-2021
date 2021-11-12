@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalController : MonoBehaviour
 {
 
-    public GameSettings settings;
+    private GameSettings settings;
 
     void Awake()
     {

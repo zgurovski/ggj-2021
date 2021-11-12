@@ -12,31 +12,15 @@ public class PlayerAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Walk()
+    public void Walk(Vector2 movement)
     {
-        var vertical = Input.GetAxis("Vertical");
-        var horizontal = Input.GetAxis("Horizontal");
-
-        if (vertical > 0)
-        {
-            animator.SetInteger("Direction", 0);
-        }
-        else if (vertical < 0)
-        {
-            animator.SetInteger("Direction", 2);
-        }
-        else if (horizontal > 0)
-        {
-            animator.SetInteger("Direction", 1);
-        }
-        else if (horizontal < 0)
-        {
-            animator.SetInteger("Direction", 3);
-        }
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     public void Idle()
     {
-        // TODO
+        animator.SetFloat("Speed", 0);
     }
 }

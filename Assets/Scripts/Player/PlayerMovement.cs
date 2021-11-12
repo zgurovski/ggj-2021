@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer GFX;
 
     [Header("Settings")]
-    public float walkSpeed = 22f;
+    public float moveSpeed = 22f;
     public float jumpTime = 9f;
     public float jumpHeight = 2.5f;
 
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
     // isTired will be used instead of isDead - when a player loses combat, player gets tired and returns to the neighbourhood
     private bool isTired = false;
+    private Vector2 movement = Vector2.zero;
 
     // A list of states where the player can move
     private List<PLAYERSTATE> MovementStates = new List<PLAYERSTATE> {
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<PlayerAnimator>();
+        animator = GetComponentInChildren<PlayerAnimator>();
         playerState = GetComponent<PlayerState>();
     }
 
@@ -58,40 +59,31 @@ public class PlayerMovement : MonoBehaviour
 
         if (MovementStates.Contains(playerState.currentState) && !isTired)
         {
-            // Fake depth by moving slower in y direction
-            Vector3 result = new Vector3(dir.x * walkSpeed, dir.y * walkSpeed * .7f, 0);
-            
-            Move(result);
+            // Move player
+            Move(dir);
         }
         else
         {
             // Stop moving
-            Move(Vector3.zero);
+            playerState.SetState(PLAYERSTATE.IDLE);
+            animator.Idle();
         }
     }
 
-    private void Move(Vector3 vector)
+    private void Move(Vector2 dir)
     {
         // Player object will move only if the player is not currently jumping
         if (playerState.currentState != PLAYERSTATE.JUMPING)
         {
+            // Fake depth by moving slower in y direction
+            Vector2 result = new Vector3(dir.x * moveSpeed, dir.y * moveSpeed * .7f);
+
             // Move player
-            if (rb != null)
-            {
-                rb.velocity = vector;
-            }
+            rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
 
             // Play walk or idle animation
-            if (Mathf.Abs(vector.x + vector.y) > 0)
-            {
-                playerState.SetState(PLAYERSTATE.MOVING);
-                animator.Walk();
-            }
-            else
-            {
-                playerState.SetState(PLAYERSTATE.IDLE);
-                animator.Idle();
-            }
+            playerState.SetState(PLAYERSTATE.MOVING);
+            animator.Walk(result.normalized);
         }
     }
 }

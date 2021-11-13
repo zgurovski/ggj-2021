@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class responsible for handling the input events in the game
+ */
 public class InputManager : MonoBehaviour
 {
     [Header("Keyboard controls")]
@@ -13,20 +16,19 @@ public class InputManager : MonoBehaviour
     public KeyCode Talk = KeyCode.E;
 
     // Delegates
-    public delegate void MovmentHandler(Vector2 dir);
+    public delegate void MovmentHandler(Vector2 direction);
     public static event MovmentHandler onMovementInputEvent;
     public delegate void CombatHandler(string action);
     public static event CombatHandler onCombatInputEvent;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public static void MovementInputEvent(Vector2 dir)
+    public static void MovementInputEvent(Vector2 direction)
     {
-        if (onMovementInputEvent != null) onMovementInputEvent(dir);
+        if (onMovementInputEvent != null) onMovementInputEvent(direction);
     }
 
     public static void CombatInputEvent(string action)
@@ -34,7 +36,6 @@ public class InputManager : MonoBehaviour
         if (onCombatInputEvent != null) onCombatInputEvent(action);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Movement input
@@ -46,8 +47,8 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(MoveUp)) y = 1f;
         if (Input.GetKey(MoveDown)) y = -1f;
 
-        Vector2 dir = new Vector2(x, y);
-        MovementInputEvent(dir);
+        Vector2 direction = new Vector2(x, y);
+        MovementInputEvent(direction);
 
         // Combat input
         if (Input.GetKeyDown(Jump))

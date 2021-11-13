@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public SpriteRenderer GFX;
+    /*public SpriteRenderer GFX;
 
     [Header("Settings")]
     public float moveSpeed = 22f;
@@ -85,5 +85,5 @@ public class PlayerMovement : MonoBehaviour
             playerState.SetState(PLAYERSTATE.MOVING);
             animator.Walk(result.normalized);
         }
-    }
+    }*/
 }

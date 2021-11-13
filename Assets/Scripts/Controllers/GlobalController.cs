@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalController : MonoBehaviour
 {
-
+    // Holds the game settings object
     private GameSettings settings;
 
     void Awake()
@@ -32,17 +32,5 @@ public class GlobalController : MonoBehaviour
             GameObject sceneLoaderObject = new GameObject("SceneLoader");
             sceneLoaderObject.AddComponent<SceneLoader>();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

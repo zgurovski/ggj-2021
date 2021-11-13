@@ -18,13 +18,13 @@ public abstract class ACharacter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         state = STATE.IDLE;
-        characterAnimator = getCharacterAnimator();
+        characterAnimator = initCharacterAnimator();
     }
 
     /**
      * Creates the character animator implementation
      */
-    public abstract ICharacterAnimator getCharacterAnimator();
+    public abstract ICharacterAnimator initCharacterAnimator();
 
     /**
      * Gets the character rigidBody
@@ -53,7 +53,7 @@ public abstract class ACharacter : MonoBehaviour
     /**
      * Gets character current state
      */
-    protected STATE getState()
+    public STATE getState()
     {
         return this.state;
     }
@@ -61,9 +61,17 @@ public abstract class ACharacter : MonoBehaviour
     /**
      * Sets new state
      */
-    protected void setState(STATE newState)
+    public void setState(STATE newState)
     {
         this.state = newState;
+    }
+
+    /**
+     * Gets the character animator
+     */
+    public ICharacterAnimator getCharacterAnimator()
+    {
+        return this.characterAnimator;
     }
 }
 

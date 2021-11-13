@@ -1,89 +1,70 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IMove
 {
-    /*public SpriteRenderer GFX;
+    public float moveSpeed = 1f;
+    private Player player;
 
-    [Header("Settings")]
-    public float moveSpeed = 22f;
-    public float jumpTime = 9f;
-    public float jumpHeight = 2.5f;
-
-    public Rigidbody2D rb;
-
-    private PlayerAnimator animator;
-    private PlayerState playerState;
-    // isTired will be used instead of isDead - when a player loses combat, player gets tired and returns to the neighbourhood
-    private bool isTired = false;
-    private Vector2 movement = Vector2.zero;
-
-    // A list of states where the player can move
-    private List<PLAYERSTATE> MovementStates = new List<PLAYERSTATE> {
-        PLAYERSTATE.IDLE,
-        PLAYERSTATE.MOVING,
-        PLAYERSTATE.JUMPING
-    };
-
-    void Awake()
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<PlayerAnimator>();
-        playerState = GetComponent<PlayerState>();
+        player = GetComponent<Player>();
     }
 
     void OnEnable()
     {
-        InputManager.onCombatInputEvent += combatInputEvent;
         InputManager.onMovementInputEvent += movementInputEvent;
     }
 
     void OnDisable()
     {
-        InputManager.onCombatInputEvent -= combatInputEvent;
         InputManager.onMovementInputEvent -= movementInputEvent;
     }
 
-    void combatInputEvent(string action)
+    void movementInputEvent(Vector2 direction)
     {
-        if (action == "jump")
-        {
+        bool isMoving = !direction.Equals(Vector2.zero);
 
+        if (player.getState() != STATE.TIRED && getAllowedForMovmentStates().Contains(player.getState()))
+        {
+            // Start walking
+            Walk(moveSpeed, direction);
+        }
+        if (!isMoving)
+        {
+            // Stop walking
+            Idle();
         }
     }
 
-    void movementInputEvent(Vector2 dir)
+    public List<STATE> getAllowedForMovmentStates()
     {
-        playerState.isMoving = !dir.Equals(Vector2.zero);
-
-        if (MovementStates.Contains(playerState.currentState) && !isTired)
-        {
-            // Move player
-            Move(dir);
-        }
-        if (!playerState.isMoving)
-        {
-            // Stop moving
-            playerState.SetState(PLAYERSTATE.IDLE);
-            animator.Idle();
-        }
+        return new List<STATE> {
+            STATE.IDLE,
+            STATE.MOVING,
+            STATE.JUMPING
+        };
     }
 
-    private void Move(Vector2 dir)
+    public void Idle()
     {
-        // Player object will move only if the player is not currently jumping
-        if (playerState.currentState != PLAYERSTATE.JUMPING)
+        player.setState(STATE.IDLE);
+        player.getCharacterAnimator().IdleAnimation();
+    }
+
+    public void Walk(float moveSpeed, Vector2 direction)
+    {
+        if (player.getState() != STATE.JUMPING)
         {
             // Fake depth by moving slower in y direction
-            Vector2 result = new Vector3(dir.x * moveSpeed, dir.y * moveSpeed * .7f);
+            Vector2 result = new Vector3(direction.x * moveSpeed, direction.y * moveSpeed * .7f);
 
             // Move player
-            rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
+            player.getRigidBody().MovePosition(player.getRigidBody().position + direction * Time.fixedDeltaTime);
 
             // Play walk or idle animation
-            playerState.SetState(PLAYERSTATE.MOVING);
-            animator.Walk(result.normalized);
+            player.setState(STATE.MOVING);
+            player.getCharacterAnimator().WalkAnimation(result.normalized);
         }
-    }*/
+    }
 }

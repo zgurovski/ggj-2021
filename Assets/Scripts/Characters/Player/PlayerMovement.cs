@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IMove
 {
-    public float moveSpeed = 1f;
+    public float moveSpeed = 10f;
     private Player player;
+    private float screenEdgeHorizontal = 26f; //the distance between the player and the horizontal edge of the screen
+    private float screenEdgeVertical = 26f; //the distance between the player and the vertical edge of the screen
 
     void Start()
     {
@@ -60,11 +62,53 @@ public class PlayerMovement : MonoBehaviour, IMove
             Vector2 result = new Vector3(direction.x * moveSpeed, direction.y * moveSpeed * .7f);
 
             // Move player
-            player.getRigidBody().MovePosition(player.getRigidBody().position + direction * Time.fixedDeltaTime);
+            player.getRigidBody().velocity = new Vector2(result.x, result.y);
 
             // Play walk or idle animation
             player.setState(STATE.MOVING);
             player.getCharacterAnimator().WalkAnimation(result.normalized);
+        }
+        KeepPlayerInCameraView();
+    }
+
+    // Keep the player within camera view
+    void KeepPlayerInCameraView()
+    {
+        Vector2 playerPosScreen = Camera.main.WorldToScreenPoint(transform.position);
+
+        if (playerPosScreen.x + screenEdgeHorizontal > Screen.width && (playerPosScreen.y - screenEdgeVertical < 0))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - screenEdgeHorizontal, screenEdgeVertical, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if (playerPosScreen.x + screenEdgeHorizontal > Screen.width)
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - screenEdgeHorizontal, playerPosScreen.y, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if (playerPosScreen.x - screenEdgeHorizontal < 0f && (playerPosScreen.y - screenEdgeVertical < 0))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(screenEdgeHorizontal, screenEdgeVertical, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if (playerPosScreen.x - screenEdgeHorizontal < 0f)
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(screenEdgeHorizontal, playerPosScreen.y, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if ((playerPosScreen.y - screenEdgeVertical < 0) && (playerPosScreen.x + screenEdgeHorizontal > Screen.width))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - screenEdgeHorizontal, screenEdgeVertical, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if ((playerPosScreen.y - screenEdgeVertical < 0) && (playerPosScreen.x - screenEdgeHorizontal < 0f))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(screenEdgeHorizontal, screenEdgeVertical, transform.position.z - Camera.main.transform.position.z));
+
+        }
+        else if (playerPosScreen.y - screenEdgeVertical < 0)
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(playerPosScreen.x, screenEdgeVertical, transform.position.z - Camera.main.transform.position.z));
         }
     }
 }

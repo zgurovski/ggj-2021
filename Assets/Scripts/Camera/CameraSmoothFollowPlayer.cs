@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,28 +41,17 @@ public class CameraSmoothFollowPlayer : MonoBehaviour
     {
         if (target == null) return;
 
-        Vector3 point = Camera.main.WorldToViewportPoint(target.position);
-        Vector3 delta = target.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-        Vector3 destination = transform.position + delta;
-        Vector3 result = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+        float clampXPositive = backgroundBounds.x - offsetX - (cameraBounds.size.x / 2f);
+        float clampXNegative = -backgroundBounds.x + offsetX + (cameraBounds.size.x / 2f);
+        float clampYPositive = backgroundBounds.y - offsetY - (cameraBounds.size.y / 2f);
+        float clampYNegative = -backgroundBounds.y + offsetY + (cameraBounds.size.y / 2f);
 
-        if (CameraIsAtTheEdge()) {
-            return;
-        }
+        Vector3 destination = new Vector3(
+            Mathf.Clamp(target.position.x, clampXNegative, clampXPositive),
+            Mathf.Clamp(target.position.y, clampYNegative, clampYPositive),
+            transform.position.z);
 
-        transform.position = result;
-    }
-
-    private bool CameraIsAtTheEdge()
-    {
-        Debug.Log(transform.position.y + " => " + cameraBounds.size.y + " => " + backgroundBounds.y);
-        
-        // We have reached the top edge of the background and we stop
-        if (transform.position.y + (cameraBounds.size.y / 2) > backgroundBounds.y - offsetX)
-        {
-            return true;
-        }
-        return false;
+        transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
     }
 
     /**

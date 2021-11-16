@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
     public delegate void CombatHandler(string action);
     public static event CombatHandler onCombatInputEvent;
 
+    private Vector2 direction;
+
     void Start()
     {
         
@@ -47,13 +49,17 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(MoveUp)) y = 1f;
         if (Input.GetKey(MoveDown)) y = -1f;
 
-        Vector2 direction = new Vector2(x, y);
-        MovementInputEvent(direction);
+        direction = new Vector2(x, y);
 
         // Combat input
         if (Input.GetKeyDown(Jump))
         {
             CombatInputEvent("jump");
         }
+    }
+
+    void FixedUpdate()
+    {
+        MovementInputEvent(direction);
     }
 }

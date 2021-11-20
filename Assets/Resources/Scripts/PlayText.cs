@@ -160,6 +160,7 @@ public class PlayText : MonoBehaviour
     bool EnableVertexEffect;
 
     Transform LastFollow;
+    private GameObject talkChecker;
     #endregion
 
     void Awake()
@@ -185,6 +186,7 @@ public class PlayText : MonoBehaviour
         EventCenter.GetInstance().AddEventListener<int>("PlayText.OptionHover", OptionHover);
         EventCenter.GetInstance().AddEventListener("PlayText.OptionUp", OptionUp);
         EventCenter.GetInstance().AddEventListener("PlayText.OptionDown", OptionDown);
+        this.talkChecker = GameObject.FindGameObjectWithTag("TalkChecker");
     }
 
     void FindPerson()
@@ -233,6 +235,7 @@ public class PlayText : MonoBehaviour
     {
         IsFinished = true;
         cam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        this.talkChecker.SetActive(true);
     }
 
     void StopTalking()
@@ -938,7 +941,8 @@ public class PlayText : MonoBehaviour
 
     public void StartTalking(DialogueGraph Graph)
     {
-        if(dialogueGraph != Graph)
+        this.talkChecker.SetActive(false);
+        if (dialogueGraph != Graph)
         {
             EventCenter.GetInstance().AddEventListener("PlayText.Stop", StopTalking);
             dialogueGraph = Graph;

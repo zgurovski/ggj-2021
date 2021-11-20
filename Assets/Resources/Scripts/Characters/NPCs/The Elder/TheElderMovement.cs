@@ -9,13 +9,16 @@ public class TheElderMovement : MonoBehaviour, IMove
     public float MaxWaitTime = 10f;
     public float secondsBeforeFirstWalk = 3f;
     public List<Transform> movementPoints;
+    public float currentIterationWaitTime;
+    public float lastTimeMoved = 0;
+    public Transform nextMovementPoint;
+    public float approachRange = 6;
     private TheElder elder;
     private List<CHARACTER_STATE> allowedForMovmentStates;
     private delegate IEnumerator MovmentHandler(Vector2 direction);
     private event MovmentHandler elderMovementDelegate;
-    public float currentIterationWaitTime;
-    public float lastTimeMoved = 0;
-    public Transform nextMovementPoint;
+    private bool firstTalkWithPlayer = false;
+    private Player player;
 
     IEnumerator Start()
     {
@@ -23,6 +26,7 @@ public class TheElderMovement : MonoBehaviour, IMove
         allowedForMovmentStates = getAllowedForMovmentStates();
         currentIterationWaitTime = Random.Range(MinWaitTime, MaxWaitTime);
         nextMovementPoint = getRandomTransportPoint(movementPoints);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         yield return new WaitForSeconds(secondsBeforeFirstWalk);
         StartCoroutine(MoveElder(nextMovementPoint.position));
@@ -95,5 +99,12 @@ public class TheElderMovement : MonoBehaviour, IMove
     {
         int RandomPointIndex = Random.Range(0, movementPoints.Count);
         return movementPoints[RandomPointIndex];
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a red sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, this.approachRange);
     }
 }

@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
     public delegate void CombatHandler(string action);
     public static event CombatHandler onCombatInputEvent;
 
-    private Vector2 direction;
+    private Vector2 direction = Vector2.zero;
 
     void Start()
     {
@@ -30,7 +30,10 @@ public class InputManager : MonoBehaviour
 
     public static void MovementInputEvent(Vector2 direction)
     {
-        if (onMovementInputEvent != null) onMovementInputEvent(direction);
+        if (onMovementInputEvent != null) {
+           // onMovementInputEvent.Invoke(direction);
+            onMovementInputEvent(direction == null ? Vector3.zero : direction);
+        }
     }
 
     public static void CombatInputEvent(string action)

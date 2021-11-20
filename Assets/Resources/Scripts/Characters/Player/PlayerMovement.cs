@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour, IMove
     private float screenEdgeHorizontal = 26f; //the distance between the player and the horizontal edge of the screen
     private float screenEdgeVertical = 26f; //the distance between the player and the vertical edge of the screen
     private List<CHARACTER_STATE> allowedForMovmentStates;
+    private GameObject talkChecker;
 
     void Start()
     {
         player = GetComponent<Player>();
+        talkChecker = GameObject.FindGameObjectWithTag("TalkChecker");
         allowedForMovmentStates = getAllowedForMovmentStates();
     }
 
@@ -23,10 +25,18 @@ public class PlayerMovement : MonoBehaviour, IMove
     void OnDisable()
     {
         InputManager.onMovementInputEvent -= movementInputEvent;
+        player.getCharacterAnimator().IdleAnimation();
+        player.getRigidBody().velocity = Vector2.zero;
     }
 
     void movementInputEvent(Vector2 direction)
     {
+
+        if (!talkChecker.activeSelf)
+        {
+            return;
+        }
+
         bool isMoving = !direction.Equals(Vector2.zero);
 
         if (player.getState() != CHARACTER_STATE.TIRED && allowedForMovmentStates.Contains(player.getState()))

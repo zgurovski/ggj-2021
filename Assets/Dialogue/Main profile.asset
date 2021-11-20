@@ -17,7 +17,7 @@ MonoBehaviour:
     Voice: {fileID: 0}
     Expression:
     - default
-  - Name: House
+  - Name: The Elder
     Voice: {fileID: 0}
     Expression:
     - default

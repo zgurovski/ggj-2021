@@ -7,9 +7,7 @@ public class PlayerTextController : MonoBehaviour
     private InteractableGraph[] interactables;
     private GameObject talkChecker;
     private TalkingManager talkManager;
-    private float distance;
     public InteractableGraph closest;
-    private Player player;
     private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
@@ -18,7 +16,6 @@ public class PlayerTextController : MonoBehaviour
         this.interactables = GameObject.FindObjectsOfType<InteractableGraph>();
         this.talkChecker = GameObject.FindGameObjectWithTag("TalkChecker");
         this.talkManager = GameObject.FindObjectOfType<TalkingManager>();
-        this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         this.playerMovement = GetComponent<PlayerMovement>();
     }
 
@@ -27,18 +24,16 @@ public class PlayerTextController : MonoBehaviour
     {
         // Hacky disable of player movement if speaking
         playerMovement.enabled = talkChecker.activeSelf;
+        //if (talkChecker.activeSelf) {
+        //    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().getRigidBody().velocity = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().getRigidBody().velocity = Vector2.zero;
+        //}
+        
 
         InteractableGraph newClosest = null;
         float closestDistance = 999999f;
         foreach (var interactable in this.interactables)
         {
             float distance = Vector3.Distance(this.transform.position, interactable.transform.position);
-           // if (interactable.name == "Babushka")
-          //  {
-               // Debug.Log("deiba mama ti deeba");
-                // Don't delete this empty if. Babusha's object breaks without it and we don't know why.
-                // Shrodinger's bug of observability.
-          //  }
 
             if (distance < closestDistance && distance < interactable.range && interactable.active)
             {

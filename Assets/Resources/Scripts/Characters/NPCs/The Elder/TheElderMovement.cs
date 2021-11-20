@@ -1,3 +1,4 @@
+using PlayTextSupport;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,9 @@ public class TheElderMovement : MonoBehaviour, IMove
     public float approachRange = 6;
     private TheElder elder;
     private List<CHARACTER_STATE> allowedForMovmentStates;
-    private delegate IEnumerator MovmentHandler(Vector2 direction);
-    private event MovmentHandler elderMovementDelegate;
     private bool firstTalkWithPlayer = false;
     private Player player;
+    private IEnumerator moveElderCoroutine;
 
     IEnumerator Start()
     {
@@ -28,18 +28,15 @@ public class TheElderMovement : MonoBehaviour, IMove
         nextMovementPoint = getRandomTransportPoint(movementPoints);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        moveElderCoroutine = MoveElder(nextMovementPoint.position);
         yield return new WaitForSeconds(secondsBeforeFirstWalk);
-        StartCoroutine(MoveElder(nextMovementPoint.position));
-    }
+        StartCoroutine(moveElderCoroutine);
 
-    void OnEnable()
-    {
-        elderMovementDelegate += MoveElder;
-    }
+        //EventCenter.GetInstance().AddEventListener("TheElderMovement.", changeSprite);
+        //EventCenter.GetInstance().EventTriggered("Player.FlowerDropped");
 
-    void OnDisable()
-    {
-        elderMovementDelegate -= MoveElder;
+        //yield return new WaitForSeconds(secondsBeforeFirstWalk);
+        //StartCoroutine(MoveElder(nextMovementPoint.position));
     }
 
     void FixedUpdate()
@@ -51,6 +48,16 @@ public class TheElderMovement : MonoBehaviour, IMove
     {
         do
         {
+            if (!firstTalkWithPlayer)
+            {
+                float distance = Vector3.Distance(this.transform.position, player.transform.position);
+
+                if (distance < approachRange)
+                {
+                    targetPoint = player.transform.position;
+                }
+            }
+
             Walk(moveSpeed, targetPoint);
             yield return null;
         } while (elder.getRigidBody().position != targetPoint);
@@ -62,7 +69,11 @@ public class TheElderMovement : MonoBehaviour, IMove
 
         yield return new WaitForSeconds(currentIterationWaitTime);
 
-        StartCoroutine(MoveElder(nextMovementPoint.position));
+
+        moveElderCoroutine = MoveElder(nextMovementPoint.position);
+        StartCoroutine(moveElderCoroutine);
+
+        //StartCoroutine(MoveElder(nextMovementPoint.position));
     }
 
     public List<CHARACTER_STATE> getAllowedForMovmentStates()
@@ -107,5 +118,18 @@ public class TheElderMovement : MonoBehaviour, IMove
         // Draw a red sphere at the transform's position
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, this.approachRange);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Idle();
+            elder.setState(CHARACTER_STATE.TALKING);
+
+            StopCoroutine(moveElderCoroutine);
+            firstTalkWithPlayer = true;
+            EventCenter.GetInstance().EventTriggered("PlayText.Play", this.GetComponent<InteractableGraph>().GetGraph());
+        }
     }
 }

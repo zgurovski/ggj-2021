@@ -9,7 +9,7 @@ public abstract class ACharacter : MonoBehaviour
     protected Rigidbody2D rigidBody;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
-    protected CHARACTER_STATE state;
+    public CHARACTER_STATE state;
     protected ICharacterAnimator characterAnimator;
 
     public virtual void Start()

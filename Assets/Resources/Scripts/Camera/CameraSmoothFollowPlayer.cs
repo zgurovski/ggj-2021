@@ -50,8 +50,6 @@ public class CameraSmoothFollowPlayer : MonoBehaviour
             Mathf.Clamp(target.position.y, clampYNegative, clampYPositive),
             transform.position.z);
 
-        Debug.Log(destination);
-
         transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
     }
 

@@ -53,14 +53,15 @@ public class TheElderMovement : MonoBehaviour, IMove
         {
             Walk(moveSpeed, targetPoint);
             yield return null;
-        } while (elder.transform.position.x != targetPoint.x || elder.transform.position.y != targetPoint.y);
+        } while (elder.getRigidBody().position != targetPoint);
 
         Idle();
         lastTimeMoved = 0;
-        yield return new WaitForSeconds(currentIterationWaitTime);
-        
         currentIterationWaitTime = Random.Range(MinWaitTime, MaxWaitTime);
         nextMovementPoint = getRandomTransportPoint(movementPoints);
+
+        yield return new WaitForSeconds(currentIterationWaitTime);
+
         StartCoroutine(MoveElder(nextMovementPoint.position));
     }
 

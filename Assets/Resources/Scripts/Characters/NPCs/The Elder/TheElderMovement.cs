@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TheElderMovement : MonoBehaviour, IMove
 {
+   
     public float moveSpeed = 10f;
     public float MinWaitTime = 3f;
     public float MaxWaitTime = 10f;
@@ -20,7 +22,7 @@ public class TheElderMovement : MonoBehaviour, IMove
     private Player player;
     private IEnumerator moveElderCoroutine;
 
-    IEnumerator Start()
+    void Start()
     {
         elder = GetComponent<TheElder>();
         allowedForMovmentStates = getAllowedForMovmentStates();
@@ -29,8 +31,8 @@ public class TheElderMovement : MonoBehaviour, IMove
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         moveElderCoroutine = MoveElder(nextMovementPoint.position);
-        yield return new WaitForSeconds(secondsBeforeFirstWalk);
-        StartCoroutine(moveElderCoroutine);
+       // yield return new WaitForSeconds(secondsBeforeFirstWalk);
+      //  StartCoroutine(moveElderCoroutine);
 
         //EventCenter.GetInstance().AddEventListener("TheElderMovement.", changeSprite);
         //EventCenter.GetInstance().EventTriggered("Player.FlowerDropped");
@@ -42,6 +44,11 @@ public class TheElderMovement : MonoBehaviour, IMove
     void FixedUpdate()
     {
         lastTimeMoved += Time.fixedDeltaTime;
+    }
+
+    void Update()
+    {
+
     }
 
     IEnumerator MoveElder(Vector2 targetPoint) 

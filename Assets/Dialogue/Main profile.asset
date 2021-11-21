@@ -21,6 +21,10 @@ MonoBehaviour:
     Voice: {fileID: 0}
     Expression:
     - default
+  - Name: Malina
+    Voice: {fileID: 0}
+    Expression:
+    - default
   DefaultVoice: {fileID: 0}
   Language:
   - English

@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Graph: {fileID: 11400000, guid: 4f1e52ce148179d48b19f0f03989da13, type: 2}
-  condition: 0
+  condition: 2
   state: 0
   range: 2
   active: 0
@@ -15840,7 +15840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Graph: {fileID: 11400000, guid: f52cc587dbe9578498ba61162c4f2f0e, type: 2}
-  condition: 0
+  condition: 2
   state: 0
   range: 2
   active: 0
@@ -38454,7 +38454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Graph: {fileID: 11400000, guid: cbc04f5f51925e04ea7b5eda3f517529, type: 2}
-  condition: 0
+  condition: 2
   state: 0
   range: 2
   active: 0
@@ -38979,7 +38979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Graph: {fileID: 11400000, guid: b07ef50c2fdd8444597e1a075f182758, type: 2}
-  condition: 0
+  condition: 2
   state: 0
   range: 2
   active: 0
@@ -58722,7 +58722,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 758397528, guid: ebf91c54b7e7e1a4892fe0488ab41f33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ebf91c54b7e7e1a4892fe0488ab41f33, type: 3}
 --- !u!1001 &304906427279243722
 PrefabInstance:
@@ -58793,6 +58794,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 744664966735500728, guid: 5afc00e818ffaa5468e19cd4f329d922, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 744664966735500730, guid: 5afc00e818ffaa5468e19cd4f329d922, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -58988,7 +58993,8 @@ PrefabInstance:
       propertyPath: movementPoints.Array.data[5]
       value: 
       objectReference: {fileID: 814095989}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 766725904, guid: 30c781ef3b1c73248a39ba3471fc9392, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30c781ef3b1c73248a39ba3471fc9392, type: 3}
 --- !u!1001 &2738835282559834439
 PrefabInstance:
@@ -59174,11 +59180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737431200728604901, guid: 1209104ac5f543d409081c7037ed34d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.15
+      value: -18.4
       objectReference: {fileID: 0}
     - target: {fileID: 3737431200728604901, guid: 1209104ac5f543d409081c7037ed34d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.77
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 3737431200728604901, guid: 1209104ac5f543d409081c7037ed34d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59289,7 +59295,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 801617306, guid: 0eaba3191d38af84cbf6fb2ba324a0d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0eaba3191d38af84cbf6fb2ba324a0d7, type: 3}
 --- !u!1001 &4309635766205511471
 PrefabInstance:
@@ -59298,6 +59305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4309635766559938681, guid: e3c3e1ed21fb66747911b6bacd920c10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4309635766559938683, guid: e3c3e1ed21fb66747911b6bacd920c10, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -59346,7 +59357,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Malina
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1928617754, guid: e3c3e1ed21fb66747911b6bacd920c10, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e3c3e1ed21fb66747911b6bacd920c10, type: 3}
 --- !u!1001 &4738739117813167061
 PrefabInstance:
@@ -59543,7 +59555,8 @@ PrefabInstance:
       propertyPath: movementPoints.Array.data[2]
       value: 
       objectReference: {fileID: 606922277}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1892073474, guid: 39dc39b66f2cdee4a87603839004e7bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39dc39b66f2cdee4a87603839004e7bc, type: 3}
 --- !u!1001 &5458134894573218127
 PrefabInstance:
@@ -59938,7 +59951,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1477031952, guid: ab5fdb2eec585754ba51ffe303518d49, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab5fdb2eec585754ba51ffe303518d49, type: 3}
 --- !u!1001 &6826479901803849299
 PrefabInstance:
@@ -60201,7 +60215,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 770796064, guid: 180652daebff90e449fcebb74a1e1dba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 180652daebff90e449fcebb74a1e1dba, type: 3}
 --- !u!1001 &7654489494670493325
 PrefabInstance:

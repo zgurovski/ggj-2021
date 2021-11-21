@@ -111,8 +111,21 @@ public class NPCMovement : MonoBehaviour, IMove
     {
         if (collision.gameObject.tag == "Player")
         {
-            //Idle();
-            //npc.setState(CHARACTER_STATE.TALKING);
+            Idle();
+            npc.setState(CHARACTER_STATE.TALKING);
+
+            StopCoroutine(moveNpcCoroutine);
+
+        }
+    }
+
+    IEnumerator OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            moveNpcCoroutine = MoveNPC(nextMovementPoint.position);
+            yield return new WaitForSeconds(secondsBeforeFirstWalk);
+            StartCoroutine(moveNpcCoroutine);
 
         }
     }

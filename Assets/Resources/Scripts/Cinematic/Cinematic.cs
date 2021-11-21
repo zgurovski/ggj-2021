@@ -8,20 +8,20 @@ public class Cinematic : MonoBehaviour
     public List<GameObject> CharacterList;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        EventCenter.GetInstance().AddEventListener("PlayText.NextDialogue", NextDialogue);
-        EventCenter.GetInstance().AddEventListener("PlayText.Asen.None", Asen);
+      //  EventCenter.GetInstance().AddEventListener("PlayText.NextDialogue", NextDialogue);
+        EventCenter.GetInstance().AddEventListener("PlayText.Player.None", Asen);
         EventCenter.GetInstance().AddEventListener("PlayText.Malina.None", Malina);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }
 
-    void NextDialogue()
+    public void NextDialogue()
     {
         for (int i = 0; i < CharacterList.Count; i++)
         {

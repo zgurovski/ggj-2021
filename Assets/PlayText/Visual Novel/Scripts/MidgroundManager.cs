@@ -6,18 +6,43 @@ using UnityEngine.UI;
 
 public class MidgroundManager : MonoBehaviour
 {
-    public List<Image> MidGroundList = new List<Image>();
-    Image currentActive;
+    public List<GameObject> CharacterList;
 
     // Start is called before the first frame update
     void Start()
     {
-        EventCenter.GetInstance().AddEventListener<List<EventValueClass>>("MidG", (x) => { IE_CS(x); });
+        EventCenter.GetInstance().AddEventListener("NextDialogue", NextDialogue);
+        //EventCenter.GetInstance().AddEventListener("PlayText.Player.None", Asen);
+        EventCenter.GetInstance().AddEventListener("PlayerOn", PlayerOn);
+        EventCenter.GetInstance().AddEventListener("MalinaOn", MalinaOn);
+        //EventCenter.GetInstance().AddEventListener("PlayText.Malina.None", Malina);
     }
 
-    void IE_CS(List<EventValueClass> Value)
+    public void Update()
     {
-        currentActive = MidGroundList.Find((x) => { return x.gameObject.name == Value[0].stringValue; });
-        currentActive.gameObject.SetActive(Value[1].boolValue);
+
     }
+
+    public void PlayerOn()
+    {
+        CharacterList[0].SetActive(true);
+        CharacterList[1].SetActive(false);
+    }
+    public void MalinaOn()
+    {
+        CharacterList[0].SetActive(false);
+        CharacterList[1].SetActive(true);
+    }
+
+    public void NextDialogue()
+    {
+        for (int i = 0; i < CharacterList.Count; i++)
+        {
+            CharacterList[i].SetActive(false);
+        }
+    }
+
+    void Asen() => CharacterList[0].SetActive(true);
+
+    void Malina() => CharacterList[1].SetActive(true);
 }

@@ -17,6 +17,7 @@ public class PlayerTextController : MonoBehaviour
         this.talkChecker = GameObject.FindGameObjectWithTag("TalkChecker");
         this.talkManager = GameObject.FindObjectOfType<TalkingManager>();
         this.playerMovement = GetComponent<PlayerMovement>();
+        Debug.Log(interactables.Length);
     }
 
     // Update is called once per frame

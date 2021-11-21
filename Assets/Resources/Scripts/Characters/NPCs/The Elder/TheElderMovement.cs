@@ -22,7 +22,7 @@ public class TheElderMovement : MonoBehaviour, IMove
     private Player player;
     private IEnumerator moveElderCoroutine;
 
-    void Start()
+    IEnumerator Start()
     {
         elder = GetComponent<TheElder>();
         allowedForMovmentStates = getAllowedForMovmentStates();
@@ -31,8 +31,8 @@ public class TheElderMovement : MonoBehaviour, IMove
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         moveElderCoroutine = MoveElder(nextMovementPoint.position);
-       // yield return new WaitForSeconds(secondsBeforeFirstWalk);
-      //  StartCoroutine(moveElderCoroutine);
+        yield return new WaitForSeconds(secondsBeforeFirstWalk);
+        StartCoroutine(moveElderCoroutine);
 
         //EventCenter.GetInstance().AddEventListener("TheElderMovement.", changeSprite);
         //EventCenter.GetInstance().EventTriggered("Player.FlowerDropped");
@@ -129,12 +129,13 @@ public class TheElderMovement : MonoBehaviour, IMove
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (!firstTalkWithPlayer && collision.gameObject.tag == "Player")
         {
             Idle();
             elder.setState(CHARACTER_STATE.TALKING);
 
             StopCoroutine(moveElderCoroutine);
+
             firstTalkWithPlayer = true;
             EventCenter.GetInstance().EventTriggered("PlayText.Play", this.GetComponent<InteractableGraph>().GetGraph());
         }

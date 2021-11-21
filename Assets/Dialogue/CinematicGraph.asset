@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Option: What? What are\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1026.9729, y: -98.55444}
+  position: {x: 1480, y: 8}
   ports:
     keys:
     - Output
@@ -58,6 +58,60 @@ MonoBehaviour:
   Width: 0
   Option:
   - Text: 'What? What are you talking about?! '
+--- !u!114 &-1622652961401006159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
+  m_Name: 'Player: I must hurry..'
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 5439.9683, y: -382.83777}
+  ports:
+    keys:
+    - Input
+    - Output
+    values:
+    - _fieldName: Input
+      _node: {fileID: -1622652961401006159}
+      _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Option 0
+        node: {fileID: 4686286869462661601}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: -1622652961401006159}
+      _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  TalkingPerson: Player
+  Expression: default
+  Facing: 0
+  FacingPerson: 
+  Width: 0
+  ShowBubble: 1
+  CameraFollow: 1
+  Audio: {fileID: 0}
+  PlayPerChar: 0
+  PlayTyping: 0
+  Dialogue:
+  - I must hurry..
+  IsMax: 1
+  curIndex: 0
 --- !u!114 &-430483880886683110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +125,7 @@ MonoBehaviour:
   m_Name: "Malina: I heard them, \u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1451.9729, y: -60.554443}
+  position: {x: 2216, y: 264}
   ports:
     keys:
     - Input
@@ -139,6 +193,7 @@ MonoBehaviour:
   - {fileID: 5819844909651460282}
   - {fileID: 547639728258085960}
   - {fileID: 4686286869462661601}
+  - {fileID: -1622652961401006159}
   startNode: {fileID: 0}
   dialogueNode: {fileID: 0}
   optionNode: {fileID: 0}
@@ -159,7 +214,7 @@ MonoBehaviour:
   m_Name: Profile
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -536, y: -200}
+  position: {x: -1048, y: -328}
   ports:
     keys: []
     values: []
@@ -177,7 +232,7 @@ MonoBehaviour:
   m_Name: "Option: What's going o\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 248, y: -152}
+  position: {x: 216, y: 216}
   ports:
     keys:
     - Output
@@ -235,7 +290,7 @@ MonoBehaviour:
   m_Name: "Malina: I'm at the bri\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 648, y: -152}
+  position: {x: 792, y: 344}
   ports:
     keys:
     - Input
@@ -293,7 +348,7 @@ MonoBehaviour:
   m_Name: "Malina: I have to go n\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2248, y: -56}
+  position: {x: 3848, y: -72}
   ports:
     keys:
     - Input
@@ -347,10 +402,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 857b2783297fa724aa9cb35db8c314c7, type: 3}
-  m_Name: 'Start: English'
+  m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -392, y: -40}
+  position: {x: -1272, y: 8}
   ports:
     keys:
     - Ouput
@@ -381,7 +436,7 @@ MonoBehaviour:
   m_Name: "Option: I promise,  do\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2808, y: 8}
+  position: {x: 5016, y: -472}
   ports:
     keys:
     - Output
@@ -414,7 +469,10 @@ MonoBehaviour:
       _node: {fileID: 4686286869462661601}
       _typeQualifiedName: OptionClass, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Input
+        node: {fileID: -1622652961401006159}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -436,7 +494,7 @@ MonoBehaviour:
   m_Name: "Option: I love you too\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1879.9729, y: -31.554443}
+  position: {x: 3272, y: 376}
   ports:
     keys:
     - Output
@@ -492,10 +550,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "Malina: Asene, it's me\u2026"
+  m_Name: "Malina: <p=40,2>Asene,\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -99.520004, y: -186.831}
+  position: {x: -712, y: 200}
   ports:
     keys:
     - Input
@@ -536,6 +594,6 @@ MonoBehaviour:
   PlayPerChar: 0
   PlayTyping: 0
   Dialogue:
-  - 'Asene, it''s me Malina! You have to come, quick! '
+  - <p=40,2>Asene, it's me Malina! You have to come, quick!
   IsMax: 1
   curIndex: 0

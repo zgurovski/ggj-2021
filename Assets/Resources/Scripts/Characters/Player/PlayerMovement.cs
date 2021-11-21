@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour, IMove
 
     void FixedUpdate()
     {
-        movementInputEvent(direction);
+        movementInputEvent(direction == null ? Vector2.zero : direction);
     }
 
     void movementInputEvent(Vector2 direction)

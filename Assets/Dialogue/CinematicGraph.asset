@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4b6094ef12246b4dbe7b97032dabf94, type: 3}
-  m_Name: 'Option: Option 1'
+  m_Name: "Option: Eeee I'm stuck\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 296, y: 56}
@@ -70,8 +70,8 @@ MonoBehaviour:
   CameraFollow: 1
   Width: 0
   Option:
-  - Text: Option 1
-  - Text: Option 2
+  - Text: "Eeee I'm stuck to tepam the kuche again..\t"
+  - Text: Never, pussy so good it makes me do crazy things!
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,13 +91,14 @@ MonoBehaviour:
   - {fileID: -5548349593228848511}
   - {fileID: 9014961676189375202}
   - {fileID: 4714886005996641269}
+  - {fileID: 3052200307992626420}
   startNode: {fileID: 0}
   dialogueNode: {fileID: 0}
   optionNode: {fileID: 0}
   eventNode: {fileID: 0}
   commentNode: {fileID: 0}
   profileNode: {fileID: 18006872969404131}
-  current: {fileID: 1806248118411646622}
+  current: {fileID: 8505995705755176229}
 --- !u!114 &18006872969404131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 857b2783297fa724aa9cb35db8c314c7, type: 3}
-  m_Name: 'Start: English'
+  m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -392, y: -40}
@@ -147,6 +148,63 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Language: English
+--- !u!114 &3052200307992626420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
+  m_Name: "Malina: Please, save m\u2026"
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1362.498, y: 52.983788}
+  ports:
+    keys:
+    - Input
+    - Output
+    values:
+    - _fieldName: Input
+      _node: {fileID: 3052200307992626420}
+      _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 9014961676189375202}
+        reroutePoints: []
+      - fieldName: Output
+        node: {fileID: 4714886005996641269}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: 3052200307992626420}
+      _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  TalkingPerson: Malina
+  Expression: default
+  Facing: 0
+  FacingPerson: 
+  Width: 0
+  ShowBubble: 1
+  CameraFollow: 1
+  Audio: {fileID: 0}
+  PlayPerChar: 0
+  PlayTyping: 0
+  Dialogue:
+  - Please, save me!
+  IsMax: 1
+  curIndex: 0
 --- !u!114 &4714886005996641269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +215,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "Player: maybe some oth\u2026"
+  m_Name: "Player: I'll never let\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 889.78064, y: 259.46152}
@@ -182,7 +240,10 @@ MonoBehaviour:
       _node: {fileID: 4714886005996641269}
       _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Input
+        node: {fileID: 3052200307992626420}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -198,7 +259,7 @@ MonoBehaviour:
   PlayPerChar: 0
   PlayTyping: 0
   Dialogue:
-  - maybe some other time..
+  - I'll never let them take you, my love!
   IsMax: 1
   curIndex: 0
 --- !u!114 &8505995705755176229
@@ -211,7 +272,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "Player: I speak someth\u2026"
+  m_Name: "Malina: Aseneee, koi e\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -99.520004, y: -186.831}
@@ -244,7 +305,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: Player
+  TalkingPerson: Malina
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -255,7 +316,7 @@ MonoBehaviour:
   PlayPerChar: 0
   PlayTyping: 0
   Dialogue:
-  - I speak something
+  - Aseneee, koi ebal - ebal, I got married
   IsMax: 1
   curIndex: 0
 --- !u!114 &9014961676189375202
@@ -268,7 +329,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: 'Player: go and get her'
+  m_Name: "Player: *looks around*\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 712, y: -152}
@@ -293,7 +354,10 @@ MonoBehaviour:
       _node: {fileID: 9014961676189375202}
       _typeQualifiedName: GraphSpace.Empty, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Input
+        node: {fileID: 3052200307992626420}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -309,6 +373,6 @@ MonoBehaviour:
   PlayPerChar: 0
   PlayTyping: 0
   Dialogue:
-  - go and get her
+  - '*looks around* A, is that a shturkel over there? *hu*'
   IsMax: 1
   curIndex: 0

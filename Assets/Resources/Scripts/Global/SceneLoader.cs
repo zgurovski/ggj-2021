@@ -49,10 +49,10 @@ public class SceneLoader : MonoBehaviour
     }
 
 
-    public void LoadScene(Scene scene)
+    public void LoadScene(string sceneName)
     {
         // Give some time for the effects to render, then change to a new scene
-        string sceneName = getSceneNameByScene(scene);
+     //   string sceneName = getSceneNameByScene(scene);
         StartCoroutine(ChangeScene(sceneName, 1f));
     }
 

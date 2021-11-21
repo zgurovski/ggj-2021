@@ -17,9 +17,11 @@ public class NPCMovement : MonoBehaviour, IMove
     private NPC npc;
     private List<CHARACTER_STATE> allowedForMovmentStates;
     private IEnumerator moveNpcCoroutine;
+    private GameObject talkChecker;
 
     IEnumerator Start()
     {
+        talkChecker = GameObject.FindGameObjectWithTag("TalkChecker");
         npc = GetComponent<NPC>();
         allowedForMovmentStates = getAllowedForMovmentStates();
         currentIterationWaitTime = Random.Range(MinWaitTime, MaxWaitTime);
@@ -107,12 +109,15 @@ public class NPCMovement : MonoBehaviour, IMove
      //   Gizmos.DrawWireSphere(transform.position, this.approachRange);
     }
 
+    /*
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             Idle();
             npc.setState(CHARACTER_STATE.TALKING);
+            talkChecker.SetActive(true);
 
             StopCoroutine(moveNpcCoroutine);
 
@@ -123,10 +128,12 @@ public class NPCMovement : MonoBehaviour, IMove
     {
         if (collision.gameObject.tag == "Player")
         {
+            talkChecker.SetActive(false);
             moveNpcCoroutine = MoveNPC(nextMovementPoint.position);
             yield return new WaitForSeconds(secondsBeforeFirstWalk);
             StartCoroutine(moveNpcCoroutine);
 
         }
     }
+    */
 }

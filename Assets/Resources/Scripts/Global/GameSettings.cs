@@ -10,4 +10,8 @@ public class GameSettings : ScriptableObject
 	[Header("Combat Settings")]
 	// The maximum number of enemies that can attack the player simultaneously 
 	public int MaxAttackers = 3;
+
+	[Header("Audio Settings")]
+	public float MusicVolume = .7f;
+	public float SFXVolume = .9f;
 }

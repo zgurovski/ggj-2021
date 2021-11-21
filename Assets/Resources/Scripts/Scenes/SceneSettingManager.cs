@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneSettingManager : MonoBehaviour
 {
+    private AudioPlayer audioplayer;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        audioplayer = GameObject.FindObjectOfType<AudioPlayer>();
         prepareSceneSettings();
     }
 
@@ -41,11 +43,14 @@ public class SceneSettingManager : MonoBehaviour
         {
             case SceneLoader.Scene.THE_NEIGHBOURHOOD:
                 {
+                    Debug.Log(2222);
+                    PlayMusic("d");
                     // Init settings for the neighbourhood scene
                     break;
                 }
             case SceneLoader.Scene.THE_SCRAPYARD:
                 {
+                    
                     // Init settings for the scrapyard scene
                     break;
                 }
@@ -54,5 +59,14 @@ public class SceneSettingManager : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    void PlayMusic(string name)
+    {
+        if (audioplayer != null) audioplayer.GetComponent<AudioPlayer>().playMusic(name);
+    }
+    void PlaySFX(string name)
+    {
+        if (audioplayer != null) audioplayer.GetComponent<AudioPlayer>().playSFX(name);
     }
 }

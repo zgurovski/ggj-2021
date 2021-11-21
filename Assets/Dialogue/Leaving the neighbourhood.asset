@@ -579,7 +579,7 @@ MonoBehaviour:
   eventNode: {fileID: 0}
   commentNode: {fileID: 0}
   profileNode: {fileID: -3421258371334379032}
-  current: {fileID: 2651793457464130478}
+  current: {fileID: 2093200981892414052}
 --- !u!114 &228790898748933545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   - 'Listen, in our gypsy community we''re all brothers and sisters. '
   - If you need help, your friends will be there for you.
   IsMax: 1
-  curIndex: 0
+  curIndex: 2
 --- !u!114 &2651793457464130478
 MonoBehaviour:
   m_ObjectHideFlags: 0

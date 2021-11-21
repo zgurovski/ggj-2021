@@ -5,12 +5,14 @@ using UnityEngine;
 public class GlobalController : MonoBehaviour
 {
     // Holds the game settings object
+    
     private GameSettings settings;
 
     void Awake()
     {
         // Load settings
         settings = (GameSettings)ScriptableObject.CreateInstance(typeof(GameSettings));
+
 
         // Creates InputManager
         if (!GameObject.FindObjectOfType<InputManager>())

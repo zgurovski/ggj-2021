@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IMove
 {
-    public float moveSpeed = 10f;
+    public float moveSpeed = 3.2f;
     private Player player;
     private float screenEdgeHorizontal = 26f; //the distance between the player and the horizontal edge of the screen
     private float screenEdgeVertical = 26f; //the distance between the player and the vertical edge of the screen

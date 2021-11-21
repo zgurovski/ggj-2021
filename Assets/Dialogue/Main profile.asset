@@ -25,6 +25,22 @@ MonoBehaviour:
     Voice: {fileID: 0}
     Expression:
     - default
+  - Name: Footballer
+    Voice: {fileID: 0}
+    Expression:
+    - default
+  - Name: BetterFootballer
+    Voice: {fileID: 0}
+    Expression:
+    - default
+  - Name: TrullyBetterFootballer
+    Voice: {fileID: 0}
+    Expression:
+    - default
+  - Name: Fortuneteller
+    Voice: {fileID: 0}
+    Expression:
+    - default
   DefaultVoice: {fileID: 0}
   Language:
   - English

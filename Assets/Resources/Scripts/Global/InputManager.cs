@@ -8,33 +8,22 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [Header("Keyboard controls")]
-    public KeyCode MoveLeft = KeyCode.LeftArrow;
-    public KeyCode MoveRight = KeyCode.RightArrow;
-    public KeyCode MoveUp = KeyCode.UpArrow;
-    public KeyCode MoveDown = KeyCode.DownArrow;
-    public KeyCode Jump = KeyCode.Space;
-    public KeyCode Talk = KeyCode.E;
+    public static KeyCode MoveLeft = KeyCode.LeftArrow;
+    public static KeyCode MoveRight = KeyCode.RightArrow;
+    public static KeyCode MoveUp = KeyCode.UpArrow;
+    public static KeyCode MoveDown = KeyCode.DownArrow;
+    public static KeyCode Jump = KeyCode.Space;
+    public static KeyCode Talk = KeyCode.E;
 
     // Delegates
-    public delegate void MovmentHandler(Vector2 direction);
-    public static event MovmentHandler onMovementInputEvent;
     public delegate void CombatHandler(string action);
     public static event CombatHandler onCombatInputEvent;
-
-    private Vector2 direction = Vector2.zero;
 
     void Start()
     {
         
     }
 
-    public static void MovementInputEvent(Vector2 direction)
-    {
-        if (onMovementInputEvent != null) {
-           // onMovementInputEvent.Invoke(direction);
-            onMovementInputEvent(direction == null ? Vector3.zero : direction);
-        }
-    }
 
     public static void CombatInputEvent(string action)
     {
@@ -43,26 +32,11 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        // Movement input
-        float x = 0f;
-        float y = 0f;
-
-        if (Input.GetKey(MoveLeft)) x = -1f;
-        if (Input.GetKey(MoveRight)) x = 1f;
-        if (Input.GetKey(MoveUp)) y = 1f;
-        if (Input.GetKey(MoveDown)) y = -1f;
-
-        direction = new Vector2(x, y);
-
+        
         // Combat input
         if (Input.GetKeyDown(Jump))
         {
             CombatInputEvent("jump");
         }
-    }
-
-    void FixedUpdate()
-    {
-        MovementInputEvent(direction);
     }
 }

@@ -59,7 +59,9 @@ namespace GraphSpace
                 else if (SentEventValue[0].guid != guid)
                     SentEventValue[0].guid = guid;
             }
-            EventCenter.GetInstance().EventTriggered(EventName, SentEventValue);
+            //deeba
+            //EventCenter.GetInstance().EventTriggered(EventName, SentEventValue);
+            EventCenter.GetInstance().EventTriggered(EventName);
         }
 
         public static void FinishThisNode(List<EventValueClass> Value)

@@ -17,7 +17,7 @@ MonoBehaviour:
     Voice: {fileID: 0}
     Expression:
     - default
-  - Name: The Elder
+  - Name: TheElder
     Voice: {fileID: 0}
     Expression:
     - default

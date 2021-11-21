@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     private float screenEdgeVertical = 26f; //the distance between the player and the vertical edge of the screen
     private List<CHARACTER_STATE> allowedForMovmentStates;
     private GameObject talkChecker;
+    private Vector2 direction = Vector2.zero;
 
     void Start()
     {
@@ -19,14 +20,33 @@ public class PlayerMovement : MonoBehaviour, IMove
 
     void OnEnable()
     {
-        InputManager.onMovementInputEvent += movementInputEvent;
+        //InputManager.onMovementInputEvent += movementInputEvent;
     }
 
     void OnDisable()
     {
-        InputManager.onMovementInputEvent -= movementInputEvent;
+       // InputManager.onMovementInputEvent -= movementInputEvent;
         player.getCharacterAnimator().IdleAnimation();
         player.getRigidBody().velocity = Vector2.zero;
+    }
+
+    void Update()
+    {
+        // Movement input
+        float x = 0f;
+        float y = 0f;
+
+        if (Input.GetKey(InputManager.MoveLeft)) x = -1f;
+        if (Input.GetKey(InputManager.MoveRight)) x = 1f;
+        if (Input.GetKey(InputManager.MoveUp)) y = 1f;
+        if (Input.GetKey(InputManager.MoveDown)) y = -1f;
+
+        direction = new Vector2(x, y);
+    }
+
+    void FixedUpdate()
+    {
+        movementInputEvent(direction);
     }
 
     void movementInputEvent(Vector2 direction)

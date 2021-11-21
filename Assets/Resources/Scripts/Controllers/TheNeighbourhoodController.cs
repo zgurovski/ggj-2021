@@ -1,4 +1,5 @@
 using PlayTextSupport;
+using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,9 @@ public class TheNeighbourhoodController : MonoBehaviour
     private StoryState storyState;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        EventCenter.GetInstance().AddEventListener("TheElder.FirstTalk", onFirstTalkEnd);
+        EventCenter.GetInstance().AddEventListener("TheElderFirstTalk", onFirstTalkEnd);
         storyState = GameObject.FindObjectOfType<StoryState>();
     }
 
@@ -20,8 +21,9 @@ public class TheNeighbourhoodController : MonoBehaviour
         
     }
 
-    private void onFirstTalkEnd()
+    public void onFirstTalkEnd()
     {
+        Debug.Log(2);
         storyState.currentState++;
     }
 }

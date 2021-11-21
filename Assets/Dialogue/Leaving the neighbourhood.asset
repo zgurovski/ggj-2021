@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Tell her Moro \u2026"
+  m_Name: "TheElder: Tell her Moro \u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 7784, y: 1480}
@@ -43,7 +43,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Gypsy's heart \u2026"
+  m_Name: "TheElder: Gypsy's heart \u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 3208, y: 808}
@@ -100,7 +100,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: And don't forg\u2026"
+  m_Name: "TheElder: And don't forg\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 7496, y: 344}
@@ -158,7 +158,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: You look troub\u2026"
+  m_Name: "TheElder: You look troub\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 88, y: -88}
@@ -216,7 +216,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Get to work bo\u2026"
+  m_Name: "TheElder: Get to work bo\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 4568, y: 824}
@@ -291,7 +291,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Want to know m\u2026"
+  m_Name: "TheElder: Want to know m\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 7224, y: 1448}
@@ -409,7 +409,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -579,7 +579,7 @@ MonoBehaviour:
   eventNode: {fileID: 0}
   commentNode: {fileID: 0}
   profileNode: {fileID: -3421258371334379032}
-  current: {fileID: 2651793457464130478}
+  current: {fileID: 6195532731585259248}
 --- !u!114 &228790898748933545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +673,6 @@ MonoBehaviour:
     - Option
     - Option 0
     - Option 1
-    - Option 2
     values:
     - _fieldName: Output
       _node: {fileID: 1703617426691124437}
@@ -721,15 +720,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-    - _fieldName: Option 2
-      _node: {fileID: 1703617426691124437}
-      _typeQualifiedName: OptionClass, PlayTextAssembly, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
   CameraFollow: 1
   Width: 0
   Option:
@@ -745,7 +735,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: So, you're in \u2026"
+  m_Name: "TheElder: So, you're in \u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 1097.99, y: 23.700012}
@@ -778,7 +768,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -835,7 +825,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: After bad luck\u2026"
+  m_Name: "TheElder: After bad luck\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 9016, y: 824}
@@ -868,7 +858,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -892,7 +882,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Time? You are \u2026"
+  m_Name: "TheElder: Time? You are \u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 5816, y: 824}
@@ -925,7 +915,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -1010,7 +1000,7 @@ MonoBehaviour:
   m_Name: Event
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10520, y: -136}
+  position: {x: 10472, y: -200}
   ports:
     keys:
     - Input
@@ -1040,7 +1030,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  EventName: TheElder.FirstTalk
+  EventName: TheElderFirstTalk
   WaitCallback: 0
   EventValue: []
   IsMax: 1
@@ -1055,7 +1045,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: If you're sear\u2026"
+  m_Name: "TheElder: If you're sear\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 2118.99, y: 227.70001}
@@ -1088,7 +1078,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 
@@ -1114,7 +1104,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc54790c38d56d240bbd83cf672713a4, type: 3}
-  m_Name: "The Elder: Have a good da\u2026"
+  m_Name: "TheElder: Have a good da\u2026"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 3176, y: -408}
@@ -1147,7 +1137,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  TalkingPerson: The Elder
+  TalkingPerson: TheElder
   Expression: default
   Facing: 0
   FacingPerson: 

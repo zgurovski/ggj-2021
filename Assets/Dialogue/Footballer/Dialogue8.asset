@@ -62,9 +62,9 @@ MonoBehaviour:
   Expression: default
   Facing: 0
   FacingPerson: 
-  Width: 100
+  Width: 0
   ShowBubble: 1
-  CameraFollow: 0
+  CameraFollow: 1
   Audio: {fileID: 0}
   PlayPerChar: 0
   PlayTyping: 0
@@ -125,4 +125,4 @@ MonoBehaviour:
   eventNode: {fileID: 0}
   commentNode: {fileID: 0}
   profileNode: {fileID: -6030223491012038913}
-  current: {fileID: -5153484724870886760}
+  current: {fileID: -594272181053201681}
